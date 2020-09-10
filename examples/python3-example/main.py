@@ -13,6 +13,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 FLASK_APP = Flask(__name__)
 
+
 @FLASK_APP.route('/secret', methods=['GET'])
 def get_secret(secret_file_path='resources/application.txt'):
     """ prints secret data as read from specified file """
@@ -38,7 +39,8 @@ def get_environment_variables():
 
     return(json.dumps({
         'PYTHON3_CONFIG_LOCATION': config_location,
-        'PYTHON3_CONFIG_ADDITIONAL_LOCATION': additional_config_location
+        'PYTHON3_CONFIG_ADDITIONAL_LOCATION': additional_config_location,
+        'api_key': os.environ.get("api_key"),
         }))
 
 @FLASK_APP.route('/', methods=['GET'])

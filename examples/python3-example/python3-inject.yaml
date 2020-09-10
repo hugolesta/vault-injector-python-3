@@ -52,7 +52,6 @@ spec:
     metadata:
       annotations:
         vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/ca-key: '/var/run/secrets/kubernetes.io/serviceaccount/ca-bundle/service-ca.crt'
         vault.hashicorp.com/agent-inject-secret-application.yaml: secret/myapp-python/config
         vault.hashicorp.com/agent-inject-template-application.yaml: |
           {{- with secret "secret/myapp-python/config" -}}
@@ -61,7 +60,7 @@ spec:
               config:
                 password: {{ .Data.password }}
           {{- end }}
-        vault.hashicorp.com/role: example
+        vault.hashicorp.com/role: myapp-python-role
       labels:
         app.kubernetes.io/instance: python3-example
         app.kubernetes.io/name: python3-example
