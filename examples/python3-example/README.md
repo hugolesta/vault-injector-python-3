@@ -5,7 +5,7 @@
 ```
 oc new-project myapp-python
 
-oc new-app --name=python3-example python:3.6~https://gitlab.ar.bsch/santander-arq/vault-santander --context-dir=docs/integrations/examples/python3-example/
+oc new-app --name=python3-example python:3.6~https://github.com/hugolesta/vault-injector-python-3 --context-dir=examples/python3-example/
 ```
 
 ## Deploy
